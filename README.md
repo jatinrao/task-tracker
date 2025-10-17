@@ -2,6 +2,10 @@
 
 A production-grade, fully-tested React + TypeScript task tracker dashboard with comprehensive functional coverage and performance validation.
 
+Deployed on Vercel : https://task-tracker-seven-ruby.vercel.app/
+
+![alt light-house-result-ss](<lighthouse_result.png>)
+
 ## Features
 
 -  **Interactive Charts**: Status and category distribution pie charts, timeline bar chart with date range filtering

@@ -20,9 +20,9 @@ export const Header= React.memo<HeaderProps>(({ title="Interactive Dashboard", s
             </div>
             <div className="flex-1">
               <h1 className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-br from-purple-500 via-purple-600 to-pink-500">{title}</h1>
-              <p className="text-sm text-gray-600 leading-tight max-w-4xl">
+              <h2 className="text-sm text-gray-600 leading-tight max-w-4xl">
                 {subtitle}
-              </p>
+              </h2>
             </div>
           </div>
         </div>
