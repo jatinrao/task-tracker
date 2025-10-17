@@ -4,12 +4,17 @@ import './index.css';
 import App from './App.tsx';
 
 async function enableMocking() {
-   if (import.meta.env.MODE !== 'development') {
-    return;
+  // TO_DO :Enabled MSW for demo purposes (disable in real production with backend)
+  try {
+    const { worker } = await import('./mocks/browser.ts');
+    await worker.start({
+      onUnhandledRequest: 'bypass',
+      quiet: false, 
+    });
+    console.log('MSW started successfully');
+  } catch (error) {
+    console.error('MSW failed to start:', error);
   }
-
-  const { worker } = await import('./mocks/browser');
-  return worker.start();
 }
 
 enableMocking().then(() => {
