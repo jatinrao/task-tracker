@@ -54,12 +54,13 @@ describe('Dashboard Integration', () => {
 
   
 
-  it('should load and display tasks', async () => {
+  it('should load and display Charts', async () => {
     renderDashboard();
 
     await waitFor(() => {
-      expect(screen.getByText('Total Tasks')).toBeInTheDocument();
-      expect(screen.getByText('50')).toBeInTheDocument();
+     expect(screen.getByText('Status Distribution')).toBeInTheDocument();
+      expect(screen.getByText('Category Distribution')).toBeInTheDocument();
+      expect(screen.getByText('Timeline')).toBeInTheDocument();
     });
   });
 

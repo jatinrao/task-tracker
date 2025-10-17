@@ -23,7 +23,7 @@ describe('Atomic Components', () => {
 
     it('should apply variant styles', () => {
       const { rerender } = render(<Button variant="primary">Primary</Button>);
-      expect(screen.getByText('Primary')).toHaveClass('bg-blue-600');
+      expect(screen.getByText('Primary')).toHaveClass('bg-gradient-to-br');
 
       rerender(<Button variant="danger">Danger</Button>);
       expect(screen.getByText('Danger')).toHaveClass('bg-red-600');
