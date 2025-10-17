@@ -5,6 +5,13 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { selectStatusDistribution } from '../../store/selectors';
 import { toggleStatus } from '../../store/slices/filterSlice';
 import type { TaskStatus } from '../../types';
+import { capitalize } from '../../utils/helper-fns';
+
+
+
+
+
+
 
 export const StatusChart = React.memo(() => {
   const dispatch = useAppDispatch();
@@ -17,6 +24,22 @@ export const StatusChart = React.memo(() => {
     },
     [dispatch]
   );
+
+  const renderLegend = (props:any) => {
+  const { payload } = props;
+  console.log("Payload",payload);
+
+  return (
+    <div className='flex flex-row justify-center gap-9 flex-wrap'>
+      {
+        payload.map((entry:any, index:any) => (
+          <div key={`item-${index}`} className='flex align-middle'><span className={`h-4 w-4 inline-flex my-auto mx-2 `} style={{backgroundColor:`${entry.color}`,borderRadius:"50%"}}></span> {capitalize(entry.value)}</div>
+        ))
+      }
+    </div>
+  );
+}
+
 
   if (data.length === 0) {
     return (
@@ -37,24 +60,26 @@ export const StatusChart = React.memo(() => {
             cx="50%"
             cy="50%"
             labelLine={false}
-            label={entry => `${entry.name}: ${entry.value}`}
+            label={entry => `${capitalize(entry.name)}: ${entry.value}`}
             outerRadius={80}
             fill="#8884d8"
             dataKey="value"
             onClick={handleClick}
-            style={{ cursor: 'pointer' }}
+            style={{ cursor: 'pointer',outline:'none' }}
+            innerRadius={60} 
+            paddingAngle={5}
           >
             {data.map((entry, index) => (
               <Cell
                 key={`cell-${index}`}
                 fill={entry.fill}
-                stroke={selectedStatuses.includes(entry.name as TaskStatus) ? '#000' : 'none'}
-                strokeWidth={selectedStatuses.includes(entry.name as TaskStatus) ? 2 : 0}
+                stroke={selectedStatuses.includes(entry.name as TaskStatus) ? '#9333ea' : 'none'}
+                strokeWidth={selectedStatuses.includes(entry.name as TaskStatus) ? 6 : 0}
               />
             ))}
           </Pie>
           <Tooltip />
-          <Legend />
+          <Legend content={renderLegend} />
         </PieChart>
       </ResponsiveContainer>
       <p className="text-xs text-gray-500 text-center mt-2">
