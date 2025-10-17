@@ -11,7 +11,7 @@ export const Button = React.memo<ButtonProps>(
     const baseStyles = 'font-medium rounded-lg transition-colors focus:outline-none focus:ring-2';
 
     const variantStyles = {
-      primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
+      primary: 'bg-gradient-to-br from-purple-500 via-purple-600 to-pink-500 text-white hover:bg-blue-700 focus:ring-blue-500',
       secondary: 'bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500',
       danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
       ghost: 'bg-transparent text-gray-700 hover:bg-gray-100 focus:ring-gray-500',

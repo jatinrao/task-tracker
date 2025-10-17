@@ -37,20 +37,15 @@ export const ActiveFilters = React.memo(() => {
   }
 
   return (
-    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-      <div className="flex items-center justify-between mb-3">
+    <div className="p-4">
+      {/* <div className="flex items-center justify-between mb-3">
         <h3 className="text-sm font-semibold text-blue-900">Active Filters</h3>
-        <div className="text-xs text-blue-700 font-mono">
-          {filters.selectedStatuses.length > 0 && filters.selectedCategories.length > 0 && '( Status OR Status ) AND ( Category OR Category )'}
-          {filters.selectedStatuses.length > 0 && filters.selectedCategories.length === 0 && '( Status OR Status )'}
-          {filters.selectedStatuses.length === 0 && filters.selectedCategories.length > 0 && '( Category OR Category )'}
-        </div>
-      </div>
+      </div> */}
       <div className="flex flex-wrap items-center gap-2">
         {/* Status Filters Group */}
         {filters.selectedStatuses.length > 0 && (
           <>
-            <span className="text-gray-600 font-semibold">(</span>
+            <span className="text-[#9333ea] font-semibold">(</span>
             {filters.selectedStatuses.map((status, index) => (
               <React.Fragment key={status}>
                 <span className="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">
@@ -64,23 +59,23 @@ export const ActiveFilters = React.memo(() => {
                   </button>
                 </span>
                 {index < filters.selectedStatuses.length - 1 && (
-                  <span className="text-blue-600 font-semibold text-sm">OR</span>
+                  <span className="text-gray-600  font-semibold text-sm">OR</span>
                 )}
               </React.Fragment>
             ))}
-            <span className="text-gray-600 font-semibold">)</span>
+            <span className="text-[#9333ea] font-semibold">)</span>
           </>
         )}
 
         {/* AND between Status and Category */}
         {filters.selectedStatuses.length > 0 && filters.selectedCategories.length > 0 && (
-          <span className="text-gray-700 font-bold text-sm px-2">AND</span>
+          <span className="text-[#9333ea] font-bold text-sm px-2">AND</span>
         )}
 
         {/* Category Filters Group */}
         {filters.selectedCategories.length > 0 && (
           <>
-            <span className="text-gray-600 font-semibold">(</span>
+            <span className="text-[#9333ea] font-semibold">(</span>
             {filters.selectedCategories.map((category, index) => (
               <React.Fragment key={category}>
                 <span className="inline-flex items-center gap-1 px-3 py-1 bg-purple-100 text-purple-800 text-sm font-medium rounded-full">
@@ -98,20 +93,20 @@ export const ActiveFilters = React.memo(() => {
                 )}
               </React.Fragment>
             ))}
-            <span className="text-gray-600 font-semibold">)</span>
+            <span className="text-[#9333ea] font-semibold">)</span>
           </>
         )}
 
         {/* AND between Category/Status and Date */}
         {(filters.selectedStatuses.length > 0 || filters.selectedCategories.length > 0) &&
           (filters.dateRange.start || filters.dateRange.end) && (
-            <span className="text-gray-700 font-bold text-sm px-2">AND</span>
+            <span className="text-[#9333ea] font-bold text-sm px-2">AND</span>
           )}
 
         {/* Date Range Filters Group */}
         {(filters.dateRange.start || filters.dateRange.end) && (
           <>
-            <span className="text-gray-600 font-semibold">(</span>
+            <span className="text-[#9333ea] font-semibold">(</span>
             {filters.dateRange.start && (
               <>
                 <span className="inline-flex items-center gap-1 px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">
@@ -134,14 +129,14 @@ export const ActiveFilters = React.memo(() => {
                 End: {format(parseISO(filters.dateRange.end), 'MMM dd, yyyy')}
                 <button
                   onClick={handleRemoveDateRange}
-                  className="ml-1 hover:text-green-900 focus:outline-none"
+                  className="ml-1  hover:text-green-900 focus:outline-none"
                   aria-label="Remove date range filter"
                 >
                   ×
                 </button>
               </span>
             )}
-            <span className="text-gray-600 font-semibold">)</span>
+            <span className="text-[#9333ea] font-semibold">)</span>
           </>
         )}
       </div>

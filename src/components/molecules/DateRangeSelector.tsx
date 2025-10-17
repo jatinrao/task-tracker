@@ -63,21 +63,21 @@ export const DateRangeSelector = React.memo(() => {
         size="sm"
         onClick={() => handlePreset('7days')}
       >
-        Last 7 Days
+        7d
       </Button>
       <Button
         variant={isActive('30days') ? 'primary' : 'secondary'}
         size="sm"
         onClick={() => handlePreset('30days')}
       >
-        Last 30 Days
+        30d
       </Button>
       <Button
         variant={isActive('all') ? 'primary' : 'secondary'}
         size="sm"
         onClick={() => handlePreset('all')}
       >
-        All Time
+        All
       </Button>
     </div>
   );

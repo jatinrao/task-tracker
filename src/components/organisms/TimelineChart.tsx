@@ -88,10 +88,10 @@ export const TimelineChart = React.memo(() => {
         if (currentDateRange.start && currentDateRange.end) {
           // Show selected range
           if (date >= currentDateRange.start && date <= currentDateRange.end) {
-            return '#3b82f6'; // Blue for selected range
+            return '#9333ea'; // Blue for selected range
           }
         }
-        return '#93c5fd'; // Light blue for unselected
+        return '#9333ea'; // Light blue for unselected
       }
     },
     [clickStart, currentDateRange]
@@ -111,35 +111,20 @@ export const TimelineChart = React.memo(() => {
   }
 
   return (
-    <Card title="Timeline">
-      {/* Debug Info */}
-      <div className="mb-2 p-2 bg-gray-100 rounded text-xs font-mono">
-        <div>
-          <strong>Debug Info:</strong>
-        </div>
-        <div>
-          <strong>Applied Filter:</strong> Start: {currentDateRange.start || 'None'} | End: {currentDateRange.end || 'None'}
-        </div>
-        <div>
-          <strong>Selection State:</strong> Click Start: {clickStart || 'None'} | Total Bars: {data.length}
-        </div>
-        <div>
-          <strong>Status:</strong> {clickStart ? '⚠️ Selecting end date...' : currentDateRange.start ? '✅ Filter applied' : '⭕ No filter'}
-        </div>
-      </div>
+    <Card title="Timeline" className='relative'>
 
-      <div className="mb-4 flex items-center justify-between">
+      <div className="mb-4 flex items-center justify-between absolute right-4 top-4">
         <DateRangeSelector />
         {clickStart && (
           <button
             onClick={handleResetSelection}
             className="text-sm text-blue-600 hover:text-blue-800 underline"
           >
-            Cancel Selection
+            Cancel
           </button>
         )}
       </div>
-      <ResponsiveContainer width="100%" height={300}>
+      <ResponsiveContainer width="100%" className={"-ml-6"} height={300}>
         <BarChart data={data}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="date" tickFormatter={formatXAxis} />

@@ -8,11 +8,6 @@ import type { TaskStatus } from '../../types';
 import { capitalize } from '../../utils/helper-fns';
 
 
-
-
-
-
-
 export const StatusChart = React.memo(() => {
   const dispatch = useAppDispatch();
   const data = useAppSelector(selectStatusDistribution);
@@ -74,7 +69,7 @@ export const StatusChart = React.memo(() => {
                 key={`cell-${index}`}
                 fill={entry.fill}
                 stroke={selectedStatuses.includes(entry.name as TaskStatus) ? '#9333ea' : 'none'}
-                strokeWidth={selectedStatuses.includes(entry.name as TaskStatus) ? 6 : 0}
+                strokeWidth={selectedStatuses.includes(entry.name as TaskStatus) ? 5 : 0}
               />
             ))}
           </Pie>

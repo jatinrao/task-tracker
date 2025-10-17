@@ -8,7 +8,7 @@ interface CardProps {
 
 export const Card = React.memo<CardProps>(({ children, className = '', title }) => {
   return (
-    <div className={`rounded-2xl bg-white shadow-md hover:shadow-lg hover:scale-105 transition-shadow duration-200  p-4 ${className}`}>
+    <div className={`rounded-2xl bg-white shadow-md hover:shadow-lg hover:scale-[1.01] transition-shadow duration-200  p-4 m-2 ${className}`}>
       {title && <h3 className="text-lg font-semibold mb-4 text-gray-900">{title}</h3>}
       {children}
     </div>

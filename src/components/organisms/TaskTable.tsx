@@ -90,16 +90,17 @@ export const TaskTable = React.memo(() => {
   }
 
   return (
-    <Card title={`Tasks (${searchedTasks.length} of ${tasks.length})`}>
-      <div className="mb-4">
+    <Card title={`Tasks (${searchedTasks.length} of ${tasks.length})`} className='relative' >
+     
         <Input
           type="text"
-          placeholder="Search in filtered results..."
+          placeholder="Search..."
           value={searchQuery}
           onChange={handleSearchChange}
           aria-label="Search tasks"
+          className="max-w-sm h-8 absolute right-4 top-4"
         />
-      </div>
+      
       <div className="overflow-x-auto">
         <table className="w-full text-sm text-left">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50">
