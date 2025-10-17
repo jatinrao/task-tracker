@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback } from 'react';
 import { Input } from '../atoms/Input';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { setSearchQuery } from '../../store/slices/filterSlice';

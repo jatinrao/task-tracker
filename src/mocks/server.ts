@@ -1,8 +1,7 @@
 
-// Mock MSW server
 export const server = {
-  listen: jest.fn(),
-  close: jest.fn(),
-  resetHandlers: jest.fn(),
-  use: jest.fn(),
+  listen: (_options?: any) => {},
+  close: () => {},
+  resetHandlers: (..._handlers: any[]) => {},
+  use: (..._handlers: any[]) => {},
 };

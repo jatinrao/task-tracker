@@ -5,7 +5,6 @@ import { Button } from '../atoms/Button';
 import { Input } from '../atoms/Input';
 import { useAppSelector } from '../../store/hooks';
 import { selectFilteredTasks } from '../../store/selectors';
-import type { Task } from '../../types';
 import { format, parseISO } from 'date-fns';
 
 type SortField = 'title' | 'category' | 'status' | 'date' | 'amount';
